@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+pragmatickm-procedure-taglib - Procedures nested within SemanticCMS pages and elements in a JSP environment.
+Copyright (C) 2014, 2015, 2016  AO Industries, Inc.
+	support@aoindustries.com
+	7262 Bull Pen Cir
+	Mobile, AL 36695
+
+This file is part of pragmatickm-procedure-taglib.
+
+pragmatickm-procedure-taglib is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+pragmatickm-procedure-taglib is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+	<description>Procedures nested within SemanticCMS pages and elements in a JSP environment.</description>
+	<display-name>pragmatickm-procedure-taglib</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>pragmatickm-procedure-taglib</short-name>
+	<uri>https://pragmatickm.com/pragmatickm-procedure-taglib</uri>
+	<tag>
+		<description><![CDATA[
+			A procedure is a step-by-step set of instructions to carry-out a task.
+			Must be nested inside a &lt;d:page&gt; tag.
+		]]></description>
+		<name>procedure</name>
+		<tag-class>com.pragmatickm.procedure.taglib.ProcedureTag</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<description><![CDATA[
+				A page-unique ID for the procedure.
+				This will also be used as an anchor when generating links to the procedure.
+				If not provided, is generated from the label.
+				Ids generated from labels will be unique, but may change as page structure changes.
+			]]></description>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[
+				Optional CSS style attribute.
+			]]></description>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[
+				A brief label for the procedure.
+				Defaults to the page short title.
+			]]></description>
+			<name>label</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
+		<description><![CDATA[
+			Writes a procedure tree as &lt;ul&gt; and &lt;li&gt; tags.
+			Filters for only pages that have at least one procedure.
+			The parent pages of any page that has a procedure will also be included.
+		]]></description>
+		<name>procedureTree</name>
+		<tag-class>com.pragmatickm.procedure.taglib.ProcedureTreeTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description><![CDATA[
+				The root page of the tree.
+			]]></description>
+			<name>root</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>com.semanticcms.core.model.Page</type>
+		</attribute>
+	</tag>
+</taglib>
