@@ -44,7 +44,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 			]]></description>
 			<name>id</name>
 			<required>false</required>
-			<rtexprvalue>true</rtexprvalue>
+			<rtexprvalue>false</rtexprvalue>
 			<type>java.lang.String</type>
 		</attribute>
 		<attribute>
@@ -53,7 +53,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 			]]></description>
 			<name>style</name>
 			<required>false</required>
-			<rtexprvalue>true</rtexprvalue>
+			<rtexprvalue>false</rtexprvalue>
 			<type>java.lang.String</type>
 		</attribute>
 		<attribute>
