@@ -22,6 +22,9 @@
  */
 package com.pragmatickm.procedure.taglib;
 
+import static com.aoindustries.encoding.Coercion.nullIfEmpty;
+import static com.aoindustries.taglib.AttributeUtils.resolveValue;
+import com.aoindustries.taglib.StyleAttribute;
 import com.pragmatickm.procedure.model.Procedure;
 import com.pragmatickm.procedure.servlet.impl.ProcedureImpl;
 import com.semanticcms.core.model.ElementContext;
@@ -32,44 +35,64 @@ import com.semanticcms.core.servlet.PageIndex;
 import com.semanticcms.core.taglib.ElementTag;
 import java.io.IOException;
 import java.io.Writer;
+import javax.el.ELContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.PageContext;
 
-public class ProcedureTag extends ElementTag<Procedure> {
+public class ProcedureTag extends ElementTag<Procedure> implements StyleAttribute {
 
-	public ProcedureTag() {
-		super(new Procedure());
-	}
-
-	private String style;
-	public void setStyle(String style) {
-		if(style!=null && style.isEmpty()) style = null;
+	private Object style;
+	@Override
+	public void setStyle(Object style) {
 		this.style = style;
 	}
 
-	public void setLabel(String label) {
-		element.setLabel(label);
+	private Object label;
+	public void setLabel(Object label) {
+		this.label = label;
     }
 
-	private PageIndex pageIndex;
 	@Override
-	protected void doBody(CaptureLevel captureLevel) throws JspException, IOException {
+	protected Procedure createElement() {
+		return new Procedure();
+	}
+
+	@Override
+	protected void evaluateAttributes(Procedure procedure, ELContext elContext) throws JspTagException, IOException {
+		super.evaluateAttributes(procedure, elContext);
+		procedure.setLabel(resolveValue(label, String.class, elContext));
+	}
+
+	private PageIndex pageIndex;
+	private Object styleObj;
+
+	@Override
+	protected void doBody(Procedure procedure, CaptureLevel captureLevel) throws JspException, IOException {
 		final PageContext pageContext = (PageContext)getJspContext();
 		final HttpServletRequest request = (HttpServletRequest)pageContext.getRequest();
 		final Page currentPage = CurrentPage.getCurrentPage(request);
 		if(currentPage == null) throw new JspTagException("<procedure> tag must be nested inside a <page> tag.");
-		pageIndex = PageIndex.getCurrentPageIndex(pageContext.getRequest());
 		// Label defaults to page short title
-		if(element.getLabel() == null) {
-			element.setLabel(currentPage.getShortTitle());
+		if(procedure.getLabel() == null) {
+			procedure.setLabel(currentPage.getShortTitle());
 		}
-		super.doBody(captureLevel);
+		if(captureLevel == CaptureLevel.BODY) {
+			pageIndex = PageIndex.getCurrentPageIndex(pageContext.getRequest());
+			styleObj = nullIfEmpty(resolveValue(style, Object.class, pageContext.getELContext()));
+		}
+		super.doBody(procedure, captureLevel);
 	}
 
 	@Override
 	public void writeTo(Writer out, ElementContext context) throws IOException {
-		ProcedureImpl.writeProcedureTable(pageIndex, out, context, style, element);
+		ProcedureImpl.writeProcedureTable(
+			pageIndex,
+			out,
+			context,
+			styleObj,
+			getElement()
+		);
 	}
 }

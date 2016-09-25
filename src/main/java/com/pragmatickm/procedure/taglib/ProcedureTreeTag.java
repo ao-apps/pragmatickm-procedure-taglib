@@ -23,7 +23,6 @@
 package com.pragmatickm.procedure.taglib;
 
 import com.pragmatickm.procedure.servlet.impl.ProcedureTreeImpl;
-import com.semanticcms.core.model.Page;
 import com.semanticcms.core.servlet.CaptureLevel;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -35,8 +34,8 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 public class ProcedureTreeTag extends SimpleTagSupport {
 
-	private Page root;
-	public void setRoot(Page root) {
+	private Object root;
+	public void setRoot(Object root) {
 		this.root = root;
 	}
 
@@ -53,6 +52,7 @@ public class ProcedureTreeTag extends SimpleTagSupport {
 			final CaptureLevel captureLevel = CaptureLevel.getCaptureLevel(request);
 			ProcedureTreeImpl.writeProcedureTree(
 				pageContext.getServletContext(),
+				pageContext.getELContext(),
 				request,
 				(HttpServletResponse)pageContext.getResponse(),
 				captureLevel == CaptureLevel.BODY ? pageContext.getOut() : null,

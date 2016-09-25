@@ -49,6 +49,9 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 			<type>java.lang.String</type>
+			<deferred-value>
+				<type>java.lang.String</type>
+			</deferred-value>
 		</attribute>
 		<attribute>
 			<description><![CDATA[
@@ -57,7 +60,10 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 			<name>style</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
-			<type>java.lang.String</type>
+			<type>java.lang.Object</type>
+			<deferred-value>
+				<type>java.lang.Object</type>
+			</deferred-value>
 		</attribute>
 		<attribute>
 			<description><![CDATA[
@@ -68,6 +74,9 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 			<type>java.lang.String</type>
+			<deferred-value>
+				<type>java.lang.String</type>
+			</deferred-value>
 		</attribute>
 	</tag>
 	<tag>
@@ -87,6 +96,9 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 			<required>true</required>
 			<rtexprvalue>true</rtexprvalue>
 			<type>com.semanticcms.core.model.Page</type>
+			<deferred-value>
+				<type>com.semanticcms.core.model.Page</type>
+			</deferred-value>
 		</attribute>
 	</tag>
 </taglib>
