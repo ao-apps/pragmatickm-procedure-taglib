@@ -24,7 +24,6 @@ package com.pragmatickm.procedure.taglib;
 
 import static com.aoindustries.encoding.Coercion.nullIfEmpty;
 import static com.aoindustries.taglib.AttributeUtils.resolveValue;
-import com.aoindustries.taglib.StyleAttribute;
 import com.pragmatickm.procedure.model.Procedure;
 import com.pragmatickm.procedure.servlet.impl.ProcedureImpl;
 import com.semanticcms.core.model.ElementContext;
@@ -36,21 +35,21 @@ import com.semanticcms.core.taglib.ElementTag;
 import java.io.IOException;
 import java.io.Writer;
 import javax.el.ELContext;
+import javax.el.ValueExpression;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.PageContext;
 
-public class ProcedureTag extends ElementTag<Procedure> implements StyleAttribute {
+public class ProcedureTag extends ElementTag<Procedure> /*implements StyleAttribute*/ {
 
-	private Object style;
-	@Override
-	public void setStyle(Object style) {
+	private ValueExpression style;
+	public void setStyle(ValueExpression style) {
 		this.style = style;
 	}
 
-	private Object label;
-	public void setLabel(Object label) {
+	private ValueExpression label;
+	public void setLabel(ValueExpression label) {
 		this.label = label;
     }
 

@@ -25,6 +25,7 @@ package com.pragmatickm.procedure.taglib;
 import com.pragmatickm.procedure.servlet.impl.ProcedureTreeImpl;
 import com.semanticcms.core.servlet.CaptureLevel;
 import java.io.IOException;
+import javax.el.ValueExpression;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,8 +35,8 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 public class ProcedureTreeTag extends SimpleTagSupport {
 
-	private Object root;
-	public void setRoot(Object root) {
+	private ValueExpression root;
+	public void setRoot(ValueExpression root) {
 		this.root = root;
 	}
 
