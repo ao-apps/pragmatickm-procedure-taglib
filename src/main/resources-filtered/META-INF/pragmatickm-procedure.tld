@@ -25,7 +25,9 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
 	version="2.1">
-	<description>@{project.description}</description>
+	<description><![CDATA[
+		<p>@{project.description}</p>
+	]]></description>
 	<display-name>@{project.name}</display-name>
 	<tlib-version>
 		<!-- Release: @{project.version} -->
@@ -35,18 +37,22 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 	<uri>@{project.url}</uri>
 	<tag>
 		<description><![CDATA[
-			A procedure is a step-by-step set of instructions to carry-out a task.
-			Must be nested inside a &lt;d:page&gt; tag.
+			<p>
+				A procedure is a step-by-step set of instructions to carry-out a task.
+				Must be nested inside a &lt;d:page&gt; tag.
+			</p>
 		]]></description>
 		<name>procedure</name>
 		<tag-class>com.pragmatickm.procedure.taglib.ProcedureTag</tag-class>
 		<body-content>scriptless</body-content>
 		<attribute>
 			<description><![CDATA[
-				A page-unique ID for the procedure.
-				This will also be used as an anchor when generating links to the procedure.
-				If not provided, is generated from the label.
-				Ids generated from labels will be unique, but may change as page structure changes.
+				<p>
+					A page-unique ID for the procedure.
+					This will also be used as an anchor when generating links to the procedure.
+					If not provided, is generated from the label.
+					Ids generated from labels will be unique, but may change as page structure changes.
+				</p>
 			]]></description>
 			<name>id</name>
 			<required>false</required>
@@ -56,7 +62,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		</attribute>
 		<attribute>
 			<description><![CDATA[
-				Optional CSS style attribute.
+				<p>Optional CSS style attribute.</p>
 			]]></description>
 			<name>style</name>
 			<required>false</required>
@@ -66,8 +72,10 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		</attribute>
 		<attribute>
 			<description><![CDATA[
-				A brief label for the procedure.
-				Defaults to the page short title.
+				<p>
+					A brief label for the procedure.
+					Defaults to the page short title.
+				</p>
 			]]></description>
 			<name>label</name>
 			<required>false</required>
@@ -78,16 +86,18 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 	</tag>
 	<tag>
 		<description><![CDATA[
-			Writes a procedure tree as &lt;ul&gt; and &lt;li&gt; tags.
-			Filters for only pages that have at least one procedure.
-			The parent pages of any page that has a procedure will also be included.
+			<p>
+				Writes a procedure tree as &lt;ul&gt; and &lt;li&gt; tags.
+				Filters for only pages that have at least one procedure.
+				The parent pages of any page that has a procedure will also be included.
+			</p>
 		]]></description>
 		<name>procedureTree</name>
 		<tag-class>com.pragmatickm.procedure.taglib.ProcedureTreeTag</tag-class>
 		<body-content>empty</body-content>
 		<attribute>
 			<description><![CDATA[
-				The root page of the tree.
+				<p>The root page of the tree.</p>
 			]]></description>
 			<name>root</name>
 			<required>true</required>
