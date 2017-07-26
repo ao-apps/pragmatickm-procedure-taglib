@@ -39,7 +39,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		datePublished="2017-07-25T20:56:44-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
-		<c:set var="version" value="@{com.:pragmatickm-procedure-taglib:pom.version}" />
+		<c:set var="version" value="@{com.pragmatickm:pragmatickm-procedure-taglib:pom.version}" />
 		<ao:assert
 			test="${!fn:startsWith(version, '@')}"
 			message="Version not substituted: #{version}"
