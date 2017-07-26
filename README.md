@@ -29,6 +29,7 @@ Procedures nested within [SemanticCMS](https://semanticcms.com/) pages and eleme
 ## Project Links
 * [Project Home](https://pragmatickm.com/procedure/taglib/)
 * [Changelog](https://pragmatickm.com/procedure/taglib/changelog)
+* [Taglib Reference](https://pragmatickm.com/procedure/taglib/pragmatickm-procedure.tld/)
 * [API Docs](https://pragmatickm.com/procedure/taglib/apidocs/)
 * [Maven Central Repository](https://search.maven.org/#search%7Cgav%7C1%7Cg:%22com.pragmatickm%22%20AND%20a:%22pragmatickm-procedure-taglib%22)
 * [GitHub](https://github.com/aoindustries/pragmatickm-procedure-taglib)
