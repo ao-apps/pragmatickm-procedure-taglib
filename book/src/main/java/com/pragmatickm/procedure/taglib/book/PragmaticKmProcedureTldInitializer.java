@@ -23,12 +23,21 @@
 package com.pragmatickm.procedure.taglib.book;
 
 import com.semanticcms.tagreference.TagReferenceInitializer;
-import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * @author  AO Industries, Inc.
  */
 public class PragmaticKmProcedureTldInitializer extends TagReferenceInitializer {
+
+	private static final Map<String,String> additionalApiLinks = new LinkedHashMap<String,String>();
+	static {
+		// Self
+		additionalApiLinks.put("com.pragmatickm.procedure.taglib.", Maven.properties.getProperty("documented.url") + "apidocs/");
+		// Dependencies
+		additionalApiLinks.put("com.semanticcms.core.model.", "https://semanticcms.com/core/model/apidocs/");
+	}
 
 	public PragmaticKmProcedureTldInitializer() {
 		super(
@@ -38,7 +47,7 @@ public class PragmaticKmProcedureTldInitializer extends TagReferenceInitializer 
 			"/pragmatickm-procedure.tld",
 			Maven.properties.getProperty("javac.link.javaApi.jdk16"),
 			Maven.properties.getProperty("javac.link.javaeeApi.6"),
-			Collections.singletonMap("com.pragmatickm.procedure.taglib.", Maven.properties.getProperty("documented.url") + "apidocs/")
+			additionalApiLinks
 		);
 	}
 }

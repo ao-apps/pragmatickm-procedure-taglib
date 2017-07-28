@@ -37,9 +37,11 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 	<uri>@{project.url}</uri>
 	<tag>
 		<description><![CDATA[
-			<p>
+			<p class="semanticcms-tag-reference-summary">
 				A procedure is a step-by-step set of instructions to carry-out a task.
-				Must be nested inside a &lt;d:page&gt; tag.
+			</p>
+			<p>
+				Must be nested inside a <a href="https://semanticcms.com/core/taglib/semanticcms-core.tld/tag-page">&lt;core:page&gt;</a> tag.
 			</p>
 		]]></description>
 		<name>procedure</name>
@@ -47,8 +49,10 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		<body-content>scriptless</body-content>
 		<attribute>
 			<description><![CDATA[
-				<p>
+				<p class="semanticcms-tag-reference-summary">
 					A page-unique ID for the procedure.
+				</p>
+				<p>
 					This will also be used as an anchor when generating links to the procedure.
 					If not provided, is generated from the label.
 					Ids generated from labels will be unique, but may change as page structure changes.
@@ -72,8 +76,10 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		</attribute>
 		<attribute>
 			<description><![CDATA[
-				<p>
+				<p class="semanticcms-tag-reference-summary">
 					A brief label for the procedure.
+				</p>
+				<p>
 					Defaults to the page short title.
 				</p>
 			]]></description>
@@ -87,8 +93,10 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 	</tag>
 	<tag>
 		<description><![CDATA[
-			<p>
+			<p class="semanticcms-tag-reference-summary">
 				Writes a procedure tree as &lt;ul&gt; and &lt;li&gt; tags.
+			</p>
+			<p>
 				Filters for only pages that have at least one procedure.
 				The parent pages of any page that has a procedure will also be included.
 			</p>
