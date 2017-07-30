@@ -139,7 +139,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		<dependency>
 			<groupId>com.semanticcms</groupId>
 			<artifactId>semanticcms-core-taglib</artifactId>
-			<version>1.9.0</version>
+			<version>1.9.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>
