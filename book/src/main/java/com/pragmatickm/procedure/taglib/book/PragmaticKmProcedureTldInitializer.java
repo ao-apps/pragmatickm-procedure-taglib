@@ -43,6 +43,7 @@ public class PragmaticKmProcedureTldInitializer extends TagReferenceInitializer 
 		super(
 			"Procedure Taglib Reference",
 			"Taglib Reference",
+			"pragmatickm.com",
 			"/procedure/taglib",
 			"/pragmatickm-procedure.tld",
 			Maven.properties.getProperty("javac.link.javaApi.jdk16"),
