@@ -24,7 +24,7 @@ package com.pragmatickm.procedure.taglib;
 
 import com.pragmatickm.procedure.servlet.impl.ProcedureTreeImpl;
 import com.semanticcms.core.pages.CaptureLevel;
-import com.semanticcms.core.servlet.CurrentCaptureLevel;
+import com.semanticcms.core.pages.local.CurrentCaptureLevel;
 import java.io.IOException;
 import javax.el.ValueExpression;
 import javax.servlet.ServletException;
