@@ -25,12 +25,12 @@ package com.pragmatickm.procedure.taglib;
 import static com.aoindustries.encoding.Coercion.nullIfEmpty;
 import static com.aoindustries.taglib.AttributeUtils.resolveValue;
 import com.pragmatickm.procedure.model.Procedure;
-import com.pragmatickm.procedure.servlet.impl.ProcedureImpl;
+import com.pragmatickm.procedure.renderer.html.ProcedureHtmlRenderer;
 import com.semanticcms.core.model.ElementContext;
 import com.semanticcms.core.model.Page;
 import com.semanticcms.core.pages.CaptureLevel;
 import com.semanticcms.core.pages.local.CurrentPage;
-import com.semanticcms.core.servlet.PageIndex;
+import com.semanticcms.core.renderer.html.PageIndex;
 import com.semanticcms.core.taglib.ElementTag;
 import java.io.IOException;
 import java.io.Writer;
@@ -86,7 +86,7 @@ public class ProcedureTag extends ElementTag<Procedure> /*implements StyleAttrib
 
 	@Override
 	public void writeTo(Writer out, ElementContext context) throws IOException {
-		ProcedureImpl.writeProcedureTable(
+		ProcedureHtmlRenderer.writeProcedureTable(
 			pageIndex,
 			out,
 			context,

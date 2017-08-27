@@ -22,7 +22,7 @@
  */
 package com.pragmatickm.procedure.taglib;
 
-import com.pragmatickm.procedure.servlet.impl.ProcedureTreeImpl;
+import com.pragmatickm.procedure.renderer.html.ProcedureTreeHtmlRenderer;
 import com.semanticcms.core.pages.CaptureLevel;
 import com.semanticcms.core.pages.local.CurrentCaptureLevel;
 import java.io.IOException;
@@ -52,7 +52,7 @@ public class ProcedureTreeTag extends SimpleTagSupport {
 
 			// Get the current capture state
 			final CaptureLevel captureLevel = CurrentCaptureLevel.getCaptureLevel(request);
-			ProcedureTreeImpl.writeProcedureTree(
+			ProcedureTreeHtmlRenderer.writeProcedureTree(
 				pageContext.getServletContext(),
 				pageContext.getELContext(),
 				request,
