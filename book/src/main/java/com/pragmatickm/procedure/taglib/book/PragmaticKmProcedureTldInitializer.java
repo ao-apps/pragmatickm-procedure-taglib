@@ -1,6 +1,6 @@
 /*
  * pragmatickm-procedure-taglib - Procedures nested within SemanticCMS pages and elements in a JSP environment.
- * Copyright (C) 2017  AO Industries, Inc.
+ * Copyright (C) 2017, 2019  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -39,9 +39,9 @@ public class PragmaticKmProcedureTldInitializer extends TagReferenceInitializer 
 	private static final Map<String,String> additionalApiLinks = new LinkedHashMap<String,String>();
 	static {
 		// Self
-		additionalApiLinks.put("com.pragmatickm.procedure.taglib.", Maven.properties.getProperty("documented.url") + "apidocs/");
+		additionalApiLinks.put("com.pragmatickm.procedure.taglib.", Maven.properties.getProperty("documented.url") + "apidocs");
 		// Dependencies
-		additionalApiLinks.put("com.semanticcms.core.model.", "https://semanticcms.com/core/model/apidocs/");
+		additionalApiLinks.put("com.semanticcms.core.model.", "https://semanticcms.com/core/model/apidocs");
 	}
 
 	public PragmaticKmProcedureTldInitializer() throws ValidationException {
