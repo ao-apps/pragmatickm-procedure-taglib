@@ -52,7 +52,7 @@ public class PragmaticKmProcedureTldInitializer extends TagReferenceInitializer 
 				),
 				Path.valueOf("/pragmatickm-procedure.tld")
 			),
-			Maven.properties.getProperty("javac.link.javaApi.jdk7"),
+			Maven.properties.getProperty("documented.javac.link.javaApi"),
 			Maven.properties.getProperty("javac.link.javaeeApi.6"),
 			additionalApiLinks
 		);
