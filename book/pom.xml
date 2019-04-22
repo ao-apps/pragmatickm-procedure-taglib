@@ -29,7 +29,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		<relativePath>../../../parent/pom.xml</relativePath>
 	</parent>
 
-	<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-taglib-book</artifactId><version>1.4.0-SNAPSHOT</version>
+	<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-taglib-book</artifactId><version>1.4.0</version>
 	<packaging>bundle</packaging>
 
 	<properties>
@@ -61,7 +61,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		<connection>scm:git:git://github.com/aoindustries/${documented.artifactId}.git</connection>
 		<developerConnection>scm:git:git@github.com:aoindustries/${documented.artifactId}.git</developerConnection>
 		<url>${documented.scm.url}</url>
-		<tag>HEAD</tag>
+		<tag>pragmatickm-procedure-taglib-book-1.4.0</tag>
 	</scm>
 
 	<build>
