@@ -53,6 +53,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 				scmUrl="@{documented.scm.url}"
 			>
 				<ul>
+					<li>Updated for <ao:a href="https://semanticcms.com/">SemanticCMS</ao:a> 2 compatibility.</li>
 					<li>Updated dependencies.</li>
 				</ul>
 			</changelog:release>
