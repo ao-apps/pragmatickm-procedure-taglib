@@ -1,6 +1,6 @@
 /*
  * pragmatickm-procedure-taglib - Procedures nested within SemanticCMS pages and elements in a JSP environment.
- * Copyright (C) 2014, 2015, 2016, 2017  AO Industries, Inc.
+ * Copyright (C) 2014, 2015, 2016, 2017, 2020  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -23,6 +23,7 @@
 package com.pragmatickm.procedure.taglib;
 
 import static com.aoindustries.encoding.Coercion.nullIfEmpty;
+import com.aoindustries.html.servlet.HtmlEE;
 import static com.aoindustries.taglib.AttributeUtils.resolveValue;
 import com.pragmatickm.procedure.model.Procedure;
 import com.pragmatickm.procedure.servlet.impl.ProcedureImpl;
@@ -86,9 +87,10 @@ public class ProcedureTag extends ElementTag<Procedure> /*implements StyleAttrib
 
 	@Override
 	public void writeTo(Writer out, ElementContext context) throws IOException {
+		PageContext pageContext = (PageContext)getJspContext();
 		ProcedureImpl.writeProcedureTable(
 			pageIndex,
-			out,
+			HtmlEE.get(pageContext.getServletContext(), (HttpServletRequest)pageContext.getRequest(), out),
 			context,
 			styleObj,
 			getElement()
