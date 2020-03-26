@@ -54,12 +54,13 @@ public class ProcedureTreeTag extends SimpleTagSupport {
 			// Get the current capture state
 			final CaptureLevel captureLevel = CaptureLevel.getCaptureLevel(request);
 			ServletContext servletContext = pageContext.getServletContext();
+			HttpServletResponse response = (HttpServletResponse)pageContext.getResponse();
 			ProcedureTreeImpl.writeProcedureTree(
 				servletContext,
 				pageContext.getELContext(),
 				request,
-				(HttpServletResponse)pageContext.getResponse(),
-				(captureLevel == CaptureLevel.BODY) ? HtmlEE.get(servletContext, request, pageContext.getOut()) : null,
+				response,
+				(captureLevel == CaptureLevel.BODY) ? HtmlEE.get(servletContext, request, response, pageContext.getOut()) : null,
 				root
 			);
 		} catch(ServletException e) {
