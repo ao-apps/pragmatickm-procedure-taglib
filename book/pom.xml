@@ -58,6 +58,11 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		<tag>HEAD</tag>
 	</scm>
 
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/aoindustries/pragmatickm-procedure-taglib/issues</url>
+	</issueManagement>
+
 	<build>
 		<plugins>
 			<!-- Add a copy of the taglib files from dependencies -->
