@@ -47,7 +47,6 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 	<inceptionYear>2013</inceptionYear>
 
 	<scm>
-		<!-- Can't inherit due to multi-module -->
 		<connection>scm:git:git://github.com/aoindustries/pragmatickm-procedure-taglib.git</connection>
 		<developerConnection>scm:git:git@github.com:aoindustries/pragmatickm-procedure-taglib.git</developerConnection>
 		<url>https://github.com/aoindustries/pragmatickm-procedure-taglib</url>
