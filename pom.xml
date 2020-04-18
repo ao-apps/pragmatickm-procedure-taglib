@@ -72,6 +72,9 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 								<link>${javadoc.link.javaee}</link>
 								<!-- Direct -->
 								<link>https://aoindustries.com/ao-encoding/apidocs/</link>
+								<link>https://aoindustries.com/ao-encoding/servlet/apidocs/</link>
+								<link>https://aoindustries.com/ao-fluent-html/apidocs/</link>
+								<link>https://aoindustries.com/ao-fluent-html/servlet/apidocs/</link>
 								<link>https://aoindustries.com/ao-taglib/apidocs/</link>
 								<link>https://pragmatickm.com/procedure/model/apidocs/</link>
 								<link>https://pragmatickm.com/procedure/renderer/html/apidocs/</link>
@@ -99,6 +102,15 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 			<!-- Direct -->
 			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>ao-encoding</artifactId><version>3.0.0${POST-SNAPSHOT}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-encoding-servlet</artifactId><version>3.0.0${POST-SNAPSHOT}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-fluent-html</artifactId><version>0.1.0${POST-SNAPSHOT}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-fluent-html-servlet</artifactId><version>0.1.0${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>5.0.0${POST-SNAPSHOT}</version>
@@ -144,6 +156,15 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		<!-- Direct -->
 		<dependency>
 			<groupId>com.aoindustries</groupId><artifactId>ao-encoding</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoindustries</groupId><artifactId>ao-encoding-servlet</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoindustries</groupId><artifactId>ao-fluent-html</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.aoindustries</groupId><artifactId>ao-fluent-html-servlet</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId>
