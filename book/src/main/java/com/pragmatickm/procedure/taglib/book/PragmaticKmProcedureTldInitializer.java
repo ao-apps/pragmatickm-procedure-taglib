@@ -27,9 +27,10 @@ import java.util.Collections;
 
 public class PragmaticKmProcedureTldInitializer extends TagReferenceInitializer {
 
+	@SuppressWarnings("unchecked")
 	public PragmaticKmProcedureTldInitializer() {
 		super(
-			"Procedure Taglib Reference",
+			Maven.properties.getProperty("project.name") + " Reference",
 			"Taglib Reference",
 			"/procedure/taglib",
 			"/pragmatickm-procedure.tld",
