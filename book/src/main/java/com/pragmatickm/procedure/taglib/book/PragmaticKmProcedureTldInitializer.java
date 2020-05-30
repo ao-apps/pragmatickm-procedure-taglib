@@ -44,6 +44,7 @@ public class PragmaticKmProcedureTldInitializer extends TagReferenceInitializer 
 				),
 				Path.valueOf("/pragmatickm-procedure.tld")
 			),
+			true,
 			Maven.properties.getProperty("documented.javadoc.link.javase"),
 			Maven.properties.getProperty("documented.javadoc.link.javaee"),
 			// Self
