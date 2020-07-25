@@ -28,7 +28,7 @@ public class PragmaticKmProcedureTldInitializer extends TagReferenceInitializer 
 
 	public PragmaticKmProcedureTldInitializer() {
 		super(
-			Maven.properties.getProperty("project.name") + " Reference",
+			Maven.properties.getProperty("documented.name") + " Reference",
 			"Taglib Reference",
 			"/procedure/taglib",
 			"/pragmatickm-procedure.tld",
