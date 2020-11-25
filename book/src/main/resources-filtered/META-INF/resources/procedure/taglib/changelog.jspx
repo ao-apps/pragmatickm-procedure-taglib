@@ -37,7 +37,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2017-07-25T20:56:44-0500"
-		dateModified="2020-03-29T01:32:25-05:00"
+		dateModified="2020-11-24T12:46:17-06:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.pragmatickm:pragmatickm-procedure-taglib:pom.version}" />
@@ -56,6 +56,12 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 				<ul>
 					<li>Updated for <ao:a href="https://semanticcms.com/">SemanticCMS</ao:a> 2 compatibility.</li>
 					<li>Minimum Java version changed from 1.7 to 1.8.</li>
+					<li>
+						Cleaned-up use of <code>JspTagException</code> versus <code>JspException</code>.  Generally,
+						methods declare <code>throws JspException</code> while actually throwing instances of
+						<code>JspTagException</code>.  The exceptions to this are attribute setters and private
+						implemententation methods that both declare and throw <code>JspTagException</code>.
+					</li>
 				</ul>
 			</changelog:release>
 		</c:if>
