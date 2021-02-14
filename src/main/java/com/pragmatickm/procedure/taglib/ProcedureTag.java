@@ -1,6 +1,6 @@
 /*
  * pragmatickm-procedure-taglib - Procedures nested within SemanticCMS pages and elements in a JSP environment.
- * Copyright (C) 2014, 2015, 2016, 2017, 2020  AO Industries, Inc.
+ * Copyright (C) 2014, 2015, 2016, 2017, 2020, 2021  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -22,12 +22,12 @@
  */
 package com.pragmatickm.procedure.taglib;
 
-import static com.aoindustries.encoding.Coercion.nullIfEmpty;
 import com.aoindustries.encoding.Doctype;
 import com.aoindustries.encoding.Serialization;
 import com.aoindustries.encoding.servlet.DoctypeEE;
 import com.aoindustries.encoding.servlet.SerializationEE;
 import com.aoindustries.html.Html;
+import static com.aoindustries.lang.Coercion.nullIfEmpty;
 import static com.aoindustries.taglib.AttributeUtils.resolveValue;
 import com.pragmatickm.procedure.model.Procedure;
 import com.pragmatickm.procedure.renderer.html.ProcedureHtmlRenderer;
