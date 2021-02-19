@@ -26,7 +26,7 @@ import com.aoindustries.encoding.Doctype;
 import com.aoindustries.encoding.Serialization;
 import com.aoindustries.encoding.servlet.DoctypeEE;
 import com.aoindustries.encoding.servlet.SerializationEE;
-import com.aoindustries.html.Html;
+import com.aoindustries.html.Document;
 import static com.aoindustries.lang.Coercion.nullIfEmpty;
 import static com.aoindustries.taglib.AttributeUtils.resolveValue;
 import com.pragmatickm.procedure.model.Procedure;
@@ -99,7 +99,7 @@ public class ProcedureTag extends ElementTag<Procedure> /*implements StyleAttrib
 	public void writeTo(Writer out, ElementContext context) throws IOException {
 		ProcedureHtmlRenderer.writeProcedureTable(
 			pageIndex,
-			new Html(serialization, doctype, out),
+			new Document(serialization, doctype, out),
 			context,
 			styleObj,
 			getElement()

@@ -1,6 +1,6 @@
 /*
  * pragmatickm-procedure-taglib - Procedures nested within SemanticCMS pages and elements in a JSP environment.
- * Copyright (C) 2014, 2015, 2016, 2017, 2020  AO Industries, Inc.
+ * Copyright (C) 2014, 2015, 2016, 2017, 2020, 2021  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -22,7 +22,7 @@
  */
 package com.pragmatickm.procedure.taglib;
 
-import com.aoindustries.html.servlet.HtmlEE;
+import com.aoindustries.html.servlet.DocumentEE;
 import com.pragmatickm.procedure.renderer.html.ProcedureTreeHtmlRenderer;
 import com.semanticcms.core.pages.CaptureLevel;
 import com.semanticcms.core.pages.local.CurrentCaptureLevel;
@@ -57,12 +57,11 @@ public class ProcedureTreeTag extends SimpleTagSupport {
 			final CaptureLevel captureLevel = CurrentCaptureLevel.getCaptureLevel(request);
 			ServletContext servletContext = pageContext.getServletContext();
 			HttpServletResponse response = (HttpServletResponse)pageContext.getResponse();
-			ProcedureTreeHtmlRenderer.writeProcedureTree(
-				servletContext,
+			ProcedureTreeHtmlRenderer.writeProcedureTree(servletContext,
 				pageContext.getELContext(),
 				request,
 				response,
-				(captureLevel == CaptureLevel.BODY) ? HtmlEE.get(servletContext, request, response, pageContext.getOut()) : null,
+				(captureLevel == CaptureLevel.BODY) ? DocumentEE.get(servletContext, request, response, pageContext.getOut()) : null,
 				root
 			);
 		} catch(ServletException e) {
