@@ -61,7 +61,13 @@ public class ProcedureTreeTag extends SimpleTagSupport {
 				pageContext.getELContext(),
 				request,
 				response,
-				(captureLevel == CaptureLevel.BODY) ? DocumentEE.get(servletContext, request, response, pageContext.getOut()) : null,
+				(captureLevel == CaptureLevel.BODY) ? DocumentEE.get(
+					servletContext,
+					request,
+					response,
+					pageContext.getOut(),
+					false // Do not add extra indentation to JSP
+				) : null,
 				root
 			);
 		} catch(ServletException e) {
