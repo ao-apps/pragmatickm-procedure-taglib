@@ -97,8 +97,14 @@ public class ProcedureTag extends ElementTag<Procedure> /*implements StyleAttrib
 
 	@Override
 	public void writeTo(Writer out, ElementContext context) throws IOException {
-		Document document = new Document(serialization, doctype, out);
-		document.setIndent(false); // Do not add extra indentation to JSP
-		ProcedureHtmlRenderer.writeProcedureTable(pageIndex, document, context, styleObj, getElement());
+		ProcedureHtmlRenderer.writeProcedureTable(
+			pageIndex,
+			new Document(serialization, doctype, out)
+				.setAutonli(false) // Do not add extra newlines to JSP
+				.setIndent(false), // Do not add extra indentation to JSP
+			context,
+			styleObj,
+			getElement()
+		);
 	}
 }
