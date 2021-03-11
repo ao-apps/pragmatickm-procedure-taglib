@@ -61,7 +61,7 @@ public class ProcedureTreeTag extends SimpleTagSupport {
 				pageContext.getELContext(),
 				request,
 				response,
-				(captureLevel == CaptureLevel.BODY) ? DocumentEE.get(
+				(captureLevel == CaptureLevel.BODY) ? new DocumentEE(
 					servletContext,
 					request,
 					response,
