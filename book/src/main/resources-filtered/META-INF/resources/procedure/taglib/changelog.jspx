@@ -36,8 +36,8 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		title="@{documented.name} Changelog"
 		shortTitle="Changelog"
 		tocLevels="1"
-		datePublished="2017-07-25T20:56:44-0500"
-		dateModified="2021-03-19T22:08:32-05:00"
+		datePublished="2017-07-25T20:56:44-05:00"
+		dateModified="2021-05-22T13:07:02-05:00"
 	>
 		<c:if test="${fn:endsWith('@{project.version}', '-SNAPSHOT') and !fn:endsWith('@{project.version}', '-POST-SNAPSHOT')}">
 			<changelog:release
@@ -46,7 +46,11 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 				groupId="@{project.groupId}"
 				artifactId="@{documented.artifactId}"
 				scmUrl="@{project.scm.url}"
-			/>
+			>
+				<ul>
+					<li>Updated to <ao:a rel="nofollow" href="https://www.oracle.com/java/technologies/javaee/javaeetechnologies.html#javaee7">Java™ EE 7 Web Profile</ao:a> (Servlet 3.1, JSP 2.3, EL 3.0, and JSTL 1.2).</li>
+				</ul>
+			</changelog:release>
 		</c:if>
 
 		<changelog:release
@@ -90,7 +94,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.5.0"
-			datePublished="2019-10-12T07:55:44-0500"
+			datePublished="2019-10-12T07:55:44-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			scmUrl="@{project.scm.url}"
@@ -103,7 +107,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.4.1"
-			datePublished="2019-06-24T00:33:12-0500"
+			datePublished="2019-06-24T00:33:12-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			scmUrl="@{project.scm.url}"
@@ -121,7 +125,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.4.0"
-			datePublished="2019-04-22T17:58:30-0500"
+			datePublished="2019-04-22T17:58:30-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			scmUrl="@{project.scm.url}"
@@ -136,7 +140,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.3.4"
-			datePublished="2017-07-27T00:24:57-0500"
+			datePublished="2017-07-27T00:24:57-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			scmUrl="@{project.scm.url}"
@@ -150,7 +154,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.3.3"
-			datePublished="2017-07-20T18:56:41-0500"
+			datePublished="2017-07-20T18:56:41-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			repository="https://aorepo.org/maven2/"
@@ -165,7 +169,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.3.2"
-			datePublished="2016-11-16T22:04:58-0600"
+			datePublished="2016-11-16T22:04:58-06:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			repository="https://aorepo.org/maven2/"
@@ -188,7 +192,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.3.1"
-			datePublished="2016-10-20T20:15:32-0500"
+			datePublished="2016-10-20T20:15:32-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			repository="https://aorepo.org/maven2/"
@@ -203,7 +207,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.3.0"
-			datePublished="2016-10-05T00:13:33-0500"
+			datePublished="2016-10-05T00:13:33-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			repository="https://aorepo.org/maven2/"
@@ -220,7 +224,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.2"
-			datePublished="2016-09-11T17:50:09-0500"
+			datePublished="2016-09-11T17:50:09-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			repository="https://aorepo.org/maven2/"
@@ -235,7 +239,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.1"
-			datePublished="2016-09-03T11:40:09-0500"
+			datePublished="2016-09-03T11:40:09-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			repository="https://aorepo.org/maven2/"
@@ -250,7 +254,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		<changelog:release
 			projectName="@{documented.name}"
 			version="1.0"
-			datePublished="2016-08-30T19:00:45-0500"
+			datePublished="2016-08-30T19:00:45-05:00"
 			groupId="@{project.groupId}"
 			artifactId="@{documented.artifactId}"
 			repository="https://aorepo.org/maven2/"
