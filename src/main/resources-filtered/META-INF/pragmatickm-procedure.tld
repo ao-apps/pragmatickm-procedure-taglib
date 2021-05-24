@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 pragmatickm-procedure-taglib - Procedures nested within SemanticCMS pages and elements in a JSP environment.
-Copyright (C) 2014, 2015, 2016, 2017, 2019  AO Industries, Inc.
+Copyright (C) 2014, 2015, 2016, 2017, 2019, 2021  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -25,8 +25,8 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
 	version="2.1">
-	<!-- datePublished="2016-08-14T23:25:20-0500" -->
-	<!-- dateModified="2016-11-10T22:35:21-0600" -->
+	<!-- datePublished="2016-08-14T23:25:20-05:00" -->
+	<!-- dateModified="2016-11-10T22:35:21-06:00" -->
 	<description><![CDATA[
 		<p>@{description.html}</p>
 	]]></description>
@@ -38,8 +38,8 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 	<short-name>procedure</short-name>
 	<uri>@{project.url}</uri>
 	<tag>
-		<!-- datePublished="2016-08-14T23:25:20-0500" -->
-		<!-- dateModified="2017-07-27T20:55:42-0500" -->
+		<!-- datePublished="2016-08-14T23:25:20-05:00" -->
+		<!-- dateModified="2017-07-27T20:55:42-05:00" -->
 		<description><![CDATA[
 			<p class="semanticcms-tag-reference-summary">
 				A procedure is a step-by-step set of instructions to carry-out a task.
@@ -96,8 +96,8 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		<dynamic-attributes>true</dynamic-attributes>
 	</tag>
 	<tag>
-		<!-- datePublished="2016-08-14T23:25:20-0500" -->
-		<!-- dateModified="2017-07-27T20:55:42-0500" -->
+		<!-- datePublished="2016-08-14T23:25:20-05:00" -->
+		<!-- dateModified="2017-07-27T20:55:42-05:00" -->
 		<description><![CDATA[
 			<p class="semanticcms-tag-reference-summary">
 				Writes a procedure tree as &lt;ul&gt; and &lt;li&gt; tags.
