@@ -22,7 +22,7 @@
  */
 package com.pragmatickm.procedure.taglib;
 
-import com.aoindustries.html.servlet.DocumentEE;
+import com.aoapps.html.servlet.DocumentEE;
 import com.pragmatickm.procedure.renderer.html.ProcedureTreeHtmlRenderer;
 import com.semanticcms.core.pages.CaptureLevel;
 import com.semanticcms.core.pages.local.CurrentCaptureLevel;
