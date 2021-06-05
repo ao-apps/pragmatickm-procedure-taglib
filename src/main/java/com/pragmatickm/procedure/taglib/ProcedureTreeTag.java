@@ -22,7 +22,7 @@
  */
 package com.pragmatickm.procedure.taglib;
 
-import com.aoindustries.html.servlet.DocumentEE;
+import com.aoapps.html.servlet.DocumentEE;
 import com.pragmatickm.procedure.servlet.impl.ProcedureTreeImpl;
 import com.semanticcms.core.servlet.CaptureLevel;
 import java.io.IOException;
