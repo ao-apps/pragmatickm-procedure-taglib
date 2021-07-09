@@ -140,6 +140,7 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 					<dependency>
 						<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-taglib</artifactId><version>1.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 						<type>jar</type>
+						<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 					</dependency>
 				</dependencies>
 			</plugin>
