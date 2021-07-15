@@ -85,6 +85,11 @@ along with pragmatickm-procedure-taglib.  If not, see <http://www.gnu.org/licens
 		<url>https://github.com/aoindustries/pragmatickm-procedure-taglib/issues</url>
 	</issueManagement>
 
+	<ciManagement>
+		<system>GitHub Actions</system>
+		<url>https://github.com/aoindustries/pragmatickm-procedure-taglib/actions</url>
+	</ciManagement>
+
 	<repositories>
 		<!-- Repository required here, too, so can find parent -->
 		<repository>
