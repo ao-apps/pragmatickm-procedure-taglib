@@ -57,7 +57,7 @@ public class ProcedureTag extends ElementTag<Procedure> /*implements StyleAttrib
 	private ValueExpression label;
 	public void setLabel(ValueExpression label) {
 		this.label = label;
-    }
+	}
 
 	@Override
 	protected Procedure createElement() {
