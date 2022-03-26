@@ -1,6 +1,6 @@
 /*
  * pragmatickm-procedure-taglib - Procedures nested within SemanticCMS pages and elements in a JSP environment.
- * Copyright (C) 2014, 2015, 2016, 2017, 2020, 2021  AO Industries, Inc.
+ * Copyright (C) 2014, 2015, 2016, 2017, 2020, 2021, 2022  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -39,6 +39,7 @@ import com.semanticcms.core.servlet.PageIndex;
 import com.semanticcms.core.taglib.ElementTag;
 import java.io.IOException;
 import java.io.Writer;
+import java.nio.charset.Charset;
 import javax.el.ELContext;
 import javax.el.ValueExpression;
 import javax.servlet.ServletContext;
@@ -74,6 +75,7 @@ public class ProcedureTag extends ElementTag<Procedure> /*implements StyleAttrib
 	private Object styleObj;
 	private Serialization serialization;
 	private Doctype doctype;
+	private Charset characterEncoding;
 
 	@Override
 	protected void doBody(Procedure procedure, CaptureLevel captureLevel) throws JspException, IOException {
@@ -91,6 +93,7 @@ public class ProcedureTag extends ElementTag<Procedure> /*implements StyleAttrib
 			styleObj = nullIfEmpty(resolveValue(style, Object.class, pageContext.getELContext()));
 			serialization = SerializationEE.get(servletContext, request);
 			doctype = DoctypeEE.get(servletContext, request);
+			characterEncoding = Charset.forName(pageContext.getResponse().getCharacterEncoding());
 		}
 		super.doBody(procedure, captureLevel);
 	}
@@ -99,7 +102,7 @@ public class ProcedureTag extends ElementTag<Procedure> /*implements StyleAttrib
 	public void writeTo(Writer out, ElementContext context) throws IOException {
 		ProcedureImpl.writeProcedureTable(
 			pageIndex,
-			new Document(serialization, doctype, out)
+			new Document(serialization, doctype, characterEncoding, out)
 				.setAutonli(false) // Do not add extra newlines to JSP
 				.setIndent(false), // Do not add extra indentation to JSP
 			context,
