@@ -51,64 +51,66 @@ import javax.servlet.jsp.PageContext;
 
 public class ProcedureTag extends ElementTag<Procedure> /*implements StyleAttribute*/ {
 
-	private ValueExpression style;
-	public void setStyle(ValueExpression style) {
-		this.style = style;
-	}
+  private ValueExpression style;
+  public void setStyle(ValueExpression style) {
+    this.style = style;
+  }
 
-	private ValueExpression label;
-	public void setLabel(ValueExpression label) {
-		this.label = label;
-	}
+  private ValueExpression label;
+  public void setLabel(ValueExpression label) {
+    this.label = label;
+  }
 
-	@Override
-	protected Procedure createElement() {
-		return new Procedure();
-	}
+  @Override
+  protected Procedure createElement() {
+    return new Procedure();
+  }
 
-	@Override
-	protected void evaluateAttributes(Procedure procedure, ELContext elContext) throws JspTagException, IOException {
-		super.evaluateAttributes(procedure, elContext);
-		procedure.setLabel(resolveValue(label, String.class, elContext));
-	}
+  @Override
+  protected void evaluateAttributes(Procedure procedure, ELContext elContext) throws JspTagException, IOException {
+    super.evaluateAttributes(procedure, elContext);
+    procedure.setLabel(resolveValue(label, String.class, elContext));
+  }
 
-	private PageIndex pageIndex;
-	private Object styleObj;
-	private Serialization serialization;
-	private Doctype doctype;
-	private Charset characterEncoding;
+  private PageIndex pageIndex;
+  private Object styleObj;
+  private Serialization serialization;
+  private Doctype doctype;
+  private Charset characterEncoding;
 
-	@Override
-	protected void doBody(Procedure procedure, CaptureLevel captureLevel) throws JspException, IOException {
-		final PageContext pageContext = (PageContext)getJspContext();
-		final HttpServletRequest request = (HttpServletRequest)pageContext.getRequest();
-		final Page currentPage = CurrentPage.getCurrentPage(request);
-		if(currentPage == null) throw new JspTagException("<procedure> tag must be nested inside a <page> tag.");
-		// Label defaults to page short title
-		if(procedure.getLabel() == null) {
-			procedure.setLabel(currentPage.getShortTitle());
-		}
-		if(captureLevel == CaptureLevel.BODY) {
-			ServletContext servletContext = pageContext.getServletContext();
-			pageIndex = PageIndex.getCurrentPageIndex(pageContext.getRequest());
-			styleObj = nullIfEmpty(resolveValue(style, Object.class, pageContext.getELContext()));
-			serialization = SerializationEE.get(servletContext, request);
-			doctype = DoctypeEE.get(servletContext, request);
-			characterEncoding = Charset.forName(pageContext.getResponse().getCharacterEncoding());
-		}
-		super.doBody(procedure, captureLevel);
-	}
+  @Override
+  protected void doBody(Procedure procedure, CaptureLevel captureLevel) throws JspException, IOException {
+    final PageContext pageContext = (PageContext)getJspContext();
+    final HttpServletRequest request = (HttpServletRequest)pageContext.getRequest();
+    final Page currentPage = CurrentPage.getCurrentPage(request);
+    if (currentPage == null) {
+      throw new JspTagException("<procedure> tag must be nested inside a <page> tag.");
+    }
+    // Label defaults to page short title
+    if (procedure.getLabel() == null) {
+      procedure.setLabel(currentPage.getShortTitle());
+    }
+    if (captureLevel == CaptureLevel.BODY) {
+      ServletContext servletContext = pageContext.getServletContext();
+      pageIndex = PageIndex.getCurrentPageIndex(pageContext.getRequest());
+      styleObj = nullIfEmpty(resolveValue(style, Object.class, pageContext.getELContext()));
+      serialization = SerializationEE.get(servletContext, request);
+      doctype = DoctypeEE.get(servletContext, request);
+      characterEncoding = Charset.forName(pageContext.getResponse().getCharacterEncoding());
+    }
+    super.doBody(procedure, captureLevel);
+  }
 
-	@Override
-	public void writeTo(Writer out, ElementContext context) throws IOException {
-		ProcedureHtmlRenderer.writeProcedureTable(
-			pageIndex,
-			new Document(serialization, doctype, characterEncoding, out)
-				.setAutonli(false) // Do not add extra newlines to JSP
-				.setIndent(false), // Do not add extra indentation to JSP
-			context,
-			styleObj,
-			getElement()
-		);
-	}
+  @Override
+  public void writeTo(Writer out, ElementContext context) throws IOException {
+    ProcedureHtmlRenderer.writeProcedureTable(
+      pageIndex,
+      new Document(serialization, doctype, characterEncoding, out)
+        .setAutonli(false) // Do not add extra newlines to JSP
+        .setIndent(false), // Do not add extra indentation to JSP
+      context,
+      styleObj,
+      getElement()
+    );
+  }
 }
