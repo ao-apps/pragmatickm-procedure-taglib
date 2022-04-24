@@ -40,6 +40,7 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
 public class ProcedureTreeTag extends SimpleTagSupport {
 
   private ValueExpression root;
+
   public void setRoot(ValueExpression root) {
     this.root = root;
   }
@@ -50,27 +51,27 @@ public class ProcedureTreeTag extends SimpleTagSupport {
   @Override
   public void doTag() throws JspException, IOException {
     try {
-      final PageContext pageContext = (PageContext)getJspContext();
-      final HttpServletRequest request = (HttpServletRequest)pageContext.getRequest();
+      final PageContext pageContext = (PageContext) getJspContext();
+      final HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
 
       // Get the current capture state
       final CaptureLevel captureLevel = CaptureLevel.getCaptureLevel(request);
       ServletContext servletContext = pageContext.getServletContext();
-      HttpServletResponse response = (HttpServletResponse)pageContext.getResponse();
+      HttpServletResponse response = (HttpServletResponse) pageContext.getResponse();
       ProcedureTreeImpl.writeProcedureTree(
-        servletContext,
-        pageContext.getELContext(),
-        request,
-        response,
-        (captureLevel == CaptureLevel.BODY) ? new DocumentEE(
           servletContext,
+          pageContext.getELContext(),
           request,
           response,
-          pageContext.getOut(),
-          false, // Do not add extra newlines to JSP
-          false  // Do not add extra indentation to JSP
-        ) : null,
-        root
+          (captureLevel == CaptureLevel.BODY) ? new DocumentEE(
+              servletContext,
+              request,
+              response,
+              pageContext.getOut(),
+              false, // Do not add extra newlines to JSP
+              false  // Do not add extra indentation to JSP
+          ) : null,
+          root
       );
     } catch (ServletException e) {
       throw new JspTagException(e);

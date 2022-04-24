@@ -52,11 +52,13 @@ import javax.servlet.jsp.PageContext;
 public class ProcedureTag extends ElementTag<Procedure> /*implements StyleAttribute*/ {
 
   private ValueExpression style;
+
   public void setStyle(ValueExpression style) {
     this.style = style;
   }
 
   private ValueExpression label;
+
   public void setLabel(ValueExpression label) {
     this.label = label;
   }
@@ -80,8 +82,8 @@ public class ProcedureTag extends ElementTag<Procedure> /*implements StyleAttrib
 
   @Override
   protected void doBody(Procedure procedure, CaptureLevel captureLevel) throws JspException, IOException {
-    final PageContext pageContext = (PageContext)getJspContext();
-    final HttpServletRequest request = (HttpServletRequest)pageContext.getRequest();
+    final PageContext pageContext = (PageContext) getJspContext();
+    final HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
     final Page currentPage = CurrentPage.getCurrentPage(request);
     if (currentPage == null) {
       throw new JspTagException("<procedure> tag must be nested inside a <page> tag.");
@@ -104,13 +106,13 @@ public class ProcedureTag extends ElementTag<Procedure> /*implements StyleAttrib
   @Override
   public void writeTo(Writer out, ElementContext context) throws IOException {
     ProcedureImpl.writeProcedureTable(
-      pageIndex,
-      new Document(serialization, doctype, characterEncoding, out)
-        .setAutonli(false) // Do not add extra newlines to JSP
-        .setIndent(false), // Do not add extra indentation to JSP
-      context,
-      styleObj,
-      getElement()
+        pageIndex,
+        new Document(serialization, doctype, characterEncoding, out)
+            .setAutonli(false) // Do not add extra newlines to JSP
+            .setIndent(false), // Do not add extra indentation to JSP
+        context,
+        styleObj,
+        getElement()
     );
   }
 }
