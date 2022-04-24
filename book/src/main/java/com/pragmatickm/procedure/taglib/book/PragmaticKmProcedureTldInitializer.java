@@ -34,22 +34,22 @@ public class PragmaticKmProcedureTldInitializer extends TagReferenceInitializer 
 
   public PragmaticKmProcedureTldInitializer() throws ValidationException {
     super(
-      Maven.properties.getProperty("documented.name") + " Reference",
-      "Taglib Reference",
-      new ResourceRef(
-        new BookRef(
-          DomainName.valueOf("pragmatickm.com"),
-          Path.valueOf("/procedure/taglib")
+        Maven.properties.getProperty("documented.name") + " Reference",
+        "Taglib Reference",
+        new ResourceRef(
+            new BookRef(
+                DomainName.valueOf("pragmatickm.com"),
+                Path.valueOf("/procedure/taglib")
+            ),
+            Path.valueOf("/pragmatickm-procedure.tld")
         ),
-        Path.valueOf("/pragmatickm-procedure.tld")
-      ),
-      true,
-      Maven.properties.getProperty("documented.javadoc.link.javase"),
-      Maven.properties.getProperty("documented.javadoc.link.javaee"),
-      // Self
-      "com.pragmatickm.procedure.taglib", Maven.properties.getProperty("project.url") + "apidocs/com.pragmatickm.procedure.taglib/",
-      // Dependencies
-      "com.semanticcms.core.model", "https://semanticcms.com/core/model/apidocs/"
+        true,
+        Maven.properties.getProperty("documented.javadoc.link.javase"),
+        Maven.properties.getProperty("documented.javadoc.link.javaee"),
+        // Self
+        "com.pragmatickm.procedure.taglib", Maven.properties.getProperty("project.url") + "apidocs/com.pragmatickm.procedure.taglib/",
+        // Dependencies
+        "com.semanticcms.core.model", "https://semanticcms.com/core/model/apidocs/"
     );
   }
 }
