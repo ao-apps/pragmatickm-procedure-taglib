@@ -37,6 +37,9 @@ import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
+/**
+ * Writes a procedure tree as &lt;ul&gt; and &lt;li&gt; tags.
+ */
 public class ProcedureTreeTag extends SimpleTagSupport {
 
   private ValueExpression root;

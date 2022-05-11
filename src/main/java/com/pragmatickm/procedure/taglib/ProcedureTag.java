@@ -23,13 +23,14 @@
 
 package com.pragmatickm.procedure.taglib;
 
+import static com.aoapps.lang.Coercion.nullIfEmpty;
+import static com.aoapps.taglib.AttributeUtils.resolveValue;
+
 import com.aoapps.encoding.Doctype;
 import com.aoapps.encoding.Serialization;
 import com.aoapps.encoding.servlet.DoctypeEE;
 import com.aoapps.encoding.servlet.SerializationEE;
 import com.aoapps.html.Document;
-import static com.aoapps.lang.Coercion.nullIfEmpty;
-import static com.aoapps.taglib.AttributeUtils.resolveValue;
 import com.pragmatickm.procedure.model.Procedure;
 import com.pragmatickm.procedure.servlet.impl.ProcedureImpl;
 import com.semanticcms.core.model.ElementContext;
@@ -49,6 +50,9 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.PageContext;
 
+/**
+ * A procedure is a step-by-step set of instructions to carry-out a task.
+ */
 public class ProcedureTag extends ElementTag<Procedure> /*implements StyleAttribute*/ {
 
   private ValueExpression style;
