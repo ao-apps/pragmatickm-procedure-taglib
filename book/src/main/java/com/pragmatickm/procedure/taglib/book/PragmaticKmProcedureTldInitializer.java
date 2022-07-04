@@ -56,7 +56,7 @@ public class PragmaticKmProcedureTldInitializer extends TagReferenceInitializer 
         // Self
         "com.pragmatickm.procedure.taglib", Maven.properties.getProperty("project.url") + "apidocs/com.pragmatickm.procedure.taglib/",
         // Dependencies
-        "com.semanticcms.core.model", "https://semanticcms.com/core/model/apidocs/"
+        "com.semanticcms.core.model", "https://semanticcms.com/core/model/apidocs/com.semanticcms.core.model/"
     );
   }
 }
