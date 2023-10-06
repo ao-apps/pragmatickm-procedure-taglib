@@ -73,7 +73,7 @@ public class ProcedureTag extends ElementTag<Procedure> /*implements StyleAttrib
   }
 
   @Override
-  protected void evaluateAttributes(Procedure procedure, ELContext elContext) throws JspTagException, IOException {
+  protected void evaluateAttributes(Procedure procedure, ELContext elContext) throws JspTagException {
     super.evaluateAttributes(procedure, elContext);
     procedure.setLabel(resolveValue(label, String.class, elContext));
   }
