@@ -26,11 +26,7 @@ package com.pragmatickm.procedure.taglib;
 import static com.aoapps.lang.Coercion.nullIfEmpty;
 import static com.aoapps.servlet.el.ElUtils.resolveValue;
 
-import com.aoapps.encoding.Doctype;
-import com.aoapps.encoding.Serialization;
-import com.aoapps.encoding.servlet.DoctypeEE;
-import com.aoapps.encoding.servlet.SerializationEE;
-import com.aoapps.html.Document;
+import com.aoapps.html.servlet.DocumentEE;
 import com.pragmatickm.procedure.model.Procedure;
 import com.pragmatickm.procedure.renderer.html.ProcedureHtmlRenderer;
 import com.semanticcms.core.model.ElementContext;
@@ -43,12 +39,12 @@ import jakarta.el.ELContext;
 import jakarta.el.ValueExpression;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.jsp.JspException;
 import jakarta.servlet.jsp.JspTagException;
 import jakarta.servlet.jsp.PageContext;
 import java.io.IOException;
 import java.io.Writer;
-import java.nio.charset.Charset;
 
 /**
  * A procedure is a step-by-step set of instructions to carry-out a task.
@@ -78,16 +74,16 @@ public class ProcedureTag extends ElementTag<Procedure> /*implements StyleAttrib
     procedure.setLabel(resolveValue(label, String.class, elContext));
   }
 
+  private ServletContext servletContext;
+  private HttpServletRequest request;
+  private HttpServletResponse response;
   private PageIndex pageIndex;
   private Object styleObj;
-  private Serialization serialization;
-  private Doctype doctype;
-  private Charset characterEncoding;
 
   @Override
   protected void doBody(Procedure procedure, CaptureLevel captureLevel) throws JspException, IOException {
     final PageContext pageContext = (PageContext) getJspContext();
-    final HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
+    request = (HttpServletRequest) pageContext.getRequest();
     final Page currentPage = CurrentPage.getCurrentPage(request);
     if (currentPage == null) {
       throw new JspTagException("<procedure> tag must be nested inside a <page> tag.");
@@ -97,12 +93,10 @@ public class ProcedureTag extends ElementTag<Procedure> /*implements StyleAttrib
       procedure.setLabel(currentPage.getShortTitle());
     }
     if (captureLevel == CaptureLevel.BODY) {
-      ServletContext servletContext = pageContext.getServletContext();
-      pageIndex = PageIndex.getCurrentPageIndex(pageContext.getRequest());
+      servletContext = pageContext.getServletContext();
+      response = (HttpServletResponse) pageContext.getResponse();
+      pageIndex = PageIndex.getCurrentPageIndex(request);
       styleObj = nullIfEmpty(resolveValue(style, Object.class, pageContext.getELContext()));
-      serialization = SerializationEE.get(servletContext, request);
-      doctype = DoctypeEE.get(servletContext, request);
-      characterEncoding = Charset.forName(pageContext.getResponse().getCharacterEncoding());
     }
     super.doBody(procedure, captureLevel);
   }
@@ -111,9 +105,10 @@ public class ProcedureTag extends ElementTag<Procedure> /*implements StyleAttrib
   public void writeTo(Writer out, ElementContext context) throws IOException {
     ProcedureHtmlRenderer.writeProcedureTable(
         pageIndex,
-        new Document(serialization, doctype, characterEncoding, out)
-            .setAutonli(false)// Do not add extra newlines to JSP
-            .setIndent(false), // Do not add extra indentation to JSP
+        new DocumentEE(servletContext, request, response, out,
+            false, // Do not add extra newlines to JSP
+            false  // Do not add extra indentation to JSP
+        ),
         context,
         styleObj,
         getElement()
