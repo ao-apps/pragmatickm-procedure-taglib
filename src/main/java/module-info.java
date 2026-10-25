@@ -21,7 +21,6 @@
  * along with pragmatickm-procedure-taglib.  If not, see <https://www.gnu.org/licenses/>.
  */
 module com.pragmatickm.procedure.taglib {
-  exports com.pragmatickm.procedure.taglib;
   // Direct
   requires com.aoapps.html.any; // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any</artifactId>
   requires com.aoapps.html.servlet; // <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId>
@@ -35,4 +34,6 @@ module com.pragmatickm.procedure.taglib {
   requires com.semanticcms.core.model; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId>
   requires com.semanticcms.core.servlet; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-servlet</artifactId>
   requires com.semanticcms.core.taglib; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId>
+
+  exports com.pragmatickm.procedure.taglib;
 }
